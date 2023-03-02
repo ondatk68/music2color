@@ -14,8 +14,8 @@ spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err, data) {
 
 
 function music2color(music){
-    colors = ["red", "green", "blue"]
-    index = Math.round(Math.random() * 2)
+    let colors = ["red", "green", "blue"]
+    let index = Math.round(Math.random() * 2)
     return colors[index]
 }
 
