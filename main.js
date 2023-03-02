@@ -1,3 +1,18 @@
+import {SpotifyWebApi} from "./node_modules/spotify-web-api-js/src/spotify-web-api.js";
+
+//var Spotify = require('spotify-web-api-js');
+//var s = new Spotify();
+
+var spotifyApi = new SpotifyWebApi();
+
+spotifyApi.setAccessToken('YOUR ACCESS TOKEN');
+
+spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', function (err, data) {
+    if (err) console.error(err);
+    else console.log('Artist albums', data);
+});
+
+
 function music2color(music){
     colors = ["red", "green", "blue"]
     index = Math.round(Math.random() * 2)
@@ -5,7 +20,8 @@ function music2color(music){
 }
 
 
-function onSelected(){
+function onSelected(event){
+    console.log("fire");
     let music = document.getElementById('musicList').value;
     color = music2color(music);
     document.getElementById("color").style.color=color;
@@ -13,5 +29,5 @@ function onSelected(){
 }
 
 window.addEventListener('DOMContentLoaded', function(){  
-    document.getElementById('musicList').addEventListener('click', onSelected);
+    document.getElementById('checkButton').addEventListener('click', onSelected);
 });
