@@ -1,0 +1,24 @@
+<template>
+     <div class="usingcolor">
+        <div class="centered">
+            <h1>この色に合う曲はこれ！</h1>
+            <div class="songlist">
+                <NuxtLink to="https://open.spotify.com/track/4F0m8AWIgR7SK6GyvPsPpc?si=e0922c12e4be4a91">
+                    春の歌 スピッツ
+                </NuxtLink>
+            </div>
+            <div class="songlist">
+                <NuxtLink to="https://open.spotify.com/track/1rr2DJOxV0sHXeUXCAz1yf?si=932cb2bcf1a74d5b">
+                    春泥棒 ヨルシカ
+                </NuxtLink>
+            </div>
+            <div class="songlist">
+                <NuxtLink to="https://open.spotify.com/track/3UF51Hc8M8ZFH7nzbZxobZ?autoplay=true">
+                    サクラ咲ケ 嵐
+                </NuxtLink>
+            </div>
+            
+        </div>
+    </div>
+</template>
+

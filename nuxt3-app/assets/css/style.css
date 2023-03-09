@@ -1,0 +1,33 @@
+h1{
+  color:black;
+}
+
+/*中央揃え*/
+.centered{
+  padding: 20px;              /* 余白指定 */
+  text-align:  center;        /* 中央寄せ */
+}
+
+/*usingcolorの背景色変更用 一時的*/
+.usingcolor{
+  background-color: pink;
+  width: 1350px;
+  height: 1080px;
+}
+
+/*homeの検索部分用*/
+.search{
+  padding: 30px;              /* 余白指定 */
+  text-align:  center;        /* 中央寄せ */
+  height: 40px;              /* 高さ指定 */
+  margin: 10px;
+}
+
+/*検索時の曲リスト用*/
+.songlist{
+  padding: 50px;              /* 余白指定 */
+  text-align:  center;        /* 中央寄せ */
+  height: 40px;              /* 高さ指定 */
+  background-color: whitesmoke;
+  margin: 50px;
+}
