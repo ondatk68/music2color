@@ -10,7 +10,7 @@
     </div>
   </template>
   <script>
-    import data from '@/assets/top20_japan.csv';
+    import data from '@/assets/song_features9.csv';
 
     export default{
       data: ()=>({
@@ -19,7 +19,7 @@
       }),
       mounted: function() {
         data.forEach((value,index) => {
-          this.tracks.push({name: value["Track Name"]+" - "+value["Artist Name"], lower: value["Track Name"]+" - "+value["Artist Name"].toLowerCase(), id:index});
+          this.tracks.push({name: value["Track Name"]+" - "+value["Artist"], lower: value["Track Name"]+" - "+value["Artist"].toLowerCase(), id:index});
         });
       },
       computed: {
