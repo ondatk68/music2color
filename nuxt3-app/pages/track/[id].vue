@@ -21,7 +21,9 @@
         <li><strong>Duration:</strong> {{ formatDuration(songInfo()['duration_ms']) }}</li>
         <li><strong>Time Signature:</strong> {{ songInfo()['time_signature'] }}</li>
       </ul>
+      <a :href="'https://open.spotify.com/track/'+songInfo()['id']" target="_blank" class="btn-spotify">Go to Spotify Page</a>
     </div>
+
   </div>
 </template>
 <style scoped>
@@ -84,6 +86,24 @@
 
   strong {
     font-weight: bold;
+  }
+
+  .btn-spotify {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #1DB954;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn-spotify:hover {
+    background-color: #1ED760;
   }
 </style>
 <script>
