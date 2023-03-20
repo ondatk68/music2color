@@ -5,14 +5,14 @@ h1{
 /*中央揃え*/
 .centered{
   padding: 20px;              /* 余白指定 */
-  text-align:  center;        /* 中央寄せ */
+  text-align: center;        /* 中央寄せ */
 }
 
 /*usingcolorの背景色変更用 一時的*/
 .usingcolor{
   background-color: pink;
-  width: 1350px;
-  height: 1080px;
+  width: 100%;
+  height: 100%;
 }
 
 /*homeの検索部分用*/

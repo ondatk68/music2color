@@ -20,5 +20,26 @@
             
         </div>
     </div>
+    <a @click="backButton" class = "btn">戻る</a>
 </template>
+
+<style>
+.btn {
+  border-radius: 30px;
+  background-color: rgb(250, 85, 85);
+  padding: 20px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+</style>
+
+<script>
+export default {
+  methods: {
+    backButton(){
+      this.$router.go(-1);
+    }
+  }
+}
+</script>
 
