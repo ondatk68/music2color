@@ -31,7 +31,8 @@
                                rgb(0, 128, 128),
                                rgb(0,0,128),
                                rgb(192, 0, 192));
-}</style>
+}
+</style>
 
 <script setup>
     definePageMeta({

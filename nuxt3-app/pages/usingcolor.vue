@@ -39,7 +39,7 @@ export default {
     backButton(){
       this.$router.go(-1);
     }
-  }
+  },
 }
 </script>
 

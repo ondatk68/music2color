@@ -106,6 +106,7 @@
     background-color: #1ED760;
   }
 </style>
+
 <script>
 
   import data from '@/assets/song_features9.csv';
