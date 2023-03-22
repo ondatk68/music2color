@@ -109,7 +109,7 @@
 
 <script>
 
-  import data from '@/assets/song_features9.csv';
+  import data from '@/assets/top_chart_50.csv';
 
   export default{
     data: ()=>({
