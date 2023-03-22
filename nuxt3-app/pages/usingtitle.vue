@@ -1,12 +1,11 @@
 <template>
   <div id="app">
     <div class="container">
-    <div class="search">
-      <input type="text" v-model="keyword" placeholder="searching track..." />
-    </div>
-
-      <tr v-for="track in filteredTracks" :key="track.id">
-        <nuxt-link :to="`/track/${track.id}`" class="songlist">{{ track.name }}</nuxt-link>
+      <div class="search">
+        <input type="text" v-model="keyword" placeholder="searching track..." />
+      </div>
+      <tr v-for="tracks in filteredTracks" :key="tracks.id">
+        <nuxt-link :to="`/track/${tracks.id}`" class="songlist">{{ tracks.name }}</nuxt-link>
       </tr>
     </div>
   </div>
@@ -15,50 +14,54 @@
 <script>
 import data from '@/assets/top_chart_50.csv';
 
-export default {
-  data() {
-    return {
-      keyword: '',
+export default{
+  data: ()=>({
+      keyword: "",
       tracks: []
-    }
-  },
-  mounted() {
-    data.forEach((value, index) => {
+  }),
+  
+  mounted: function() {
+    data.forEach((value,index) => {
       this.tracks.push({ name: value["Track Name"] + " - " + value["Artist"], lower: value["Track Name"] + " - " + value["Artist"].toLowerCase(), id: index });
     });
   },
   computed: {
-    filteredTracks() {
+    filteredTracks: function() {
       var tracks = [];
       for (var i in this.tracks) {
-        var song = this.tracks[i];
+        var song  = this.tracks[i];
         if (song.lower.indexOf(this.keyword.toLowerCase()) !== -1) {
           tracks.push(song);
         }
       }
       return tracks;
     }
-  }
+  },
 }
 </script>
 
 <style scoped>
+
+.search {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
 .search input[type="text"] {
   width: 300px;
   height: 20px;
   font-size: 18px;
-
   padding: 15px;
   padding-left: 30px;
   border: none;
   border-radius: 40px;
   background-color: white;
   outline: none;
-  margin-top: 100px;
-  margin-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   border: 1px solid black;
 }
-
 
 .container {
   display: flex;
