@@ -1,8 +1,8 @@
 <template>
   <div>
-    <NuxtLayout name="default">
+    <!-- <NuxtLayout name="default">
       <template #header>ヘッダー</template>
-    </NuxtLayout>
+    </NuxtLayout> -->
     <div class="wrapper">
       <div class="centered">
         <h1 class="shadow">Music to Color</h1>
@@ -120,7 +120,7 @@
   max-width  : 250px;
   height     : 150px;
   margin     : auto;
- 
+
   background : linear-gradient(to right,
                                rgb(255, 128, 128),
                                rgb(255, 210, 125),
