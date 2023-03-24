@@ -181,7 +181,7 @@
       songInfo() {
         // idに対応するデータを返す
         if (this.csvData.length > 0) {
-          return this.csvData.find((row, index) => index == this.$route.params.id);
+          return this.csvData.find((row) => row["id"] == this.$route.params.id);
         }else{
           return {}
         }

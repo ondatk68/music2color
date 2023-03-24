@@ -19,10 +19,10 @@ export default{
       keyword: "",
       tracks: []
   }),
-  
+
   mounted: function() {
-    data.forEach((value,index) => {
-      this.tracks.push({ name: value["Track Name"] + " - " + value["Artist"], lower: value["Track Name"] + " - " + value["Artist"].toLowerCase(), id: index });
+    data.forEach((value) => {
+      this.tracks.push({ name: value["Track Name"] + " - " + value["Artist"], lower: value["Track Name"] + " - " + value["Artist"].toLowerCase(), id: value["id"]});
     });
   },
   computed: {
@@ -46,6 +46,7 @@ export default{
   display: flex;
   justify-content: center;
   margin-top: 50px;
+  background-color: transparent;
 }
 
 .search input[type="text"] {
@@ -58,8 +59,6 @@ export default{
   border-radius: 40px;
   background-color: white;
   outline: none;
-  margin-top: 20px;
-  margin-bottom: 20px;
   border: 1px solid black;
 }
 
@@ -67,7 +66,6 @@ export default{
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
 
 .songlist {
@@ -79,7 +77,7 @@ export default{
   padding: 50px;
   width: 500px;
   color: black; /*テキストの色変化と下線を消したい */
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 </style>

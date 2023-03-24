@@ -6,10 +6,10 @@
     <div class="wrapper">
       <div class="centered">
         <h1 class="shadow">Music to Color</h1>
-        <div class="search">
+        <div class="gotosearch">
           <NuxtLink to="/usingcolor">色で検索する</NuxtLink>
         </div>
-        <div class="search">
+        <div class="gotosearch">
           <NuxtLink to="/usingtitle">曲名で検索する</NuxtLink>
         </div>
         <div class="box">
@@ -101,7 +101,7 @@
   }
 }
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
-.search {
+.gotosearch {
   font-family: 'Noto Sans JP', sans-serif;
   border-radius: 30px;
   background-color: rgba(248, 247, 247, 0.2);
