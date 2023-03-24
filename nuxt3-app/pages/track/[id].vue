@@ -3,10 +3,12 @@
     <div class="song-info">
       <div class="song-image">
         <img :src="songInfo()['Album Art']" alt="Album Art">
+        <iframe :src = "'https://open.spotify.com/embed/track/'+songInfo()['id']"  frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
       </div>
       <div class="song-details">
-        <h1>{{ songInfo()['Track Name'] }}</h1>
-        <h2>{{ songInfo()['Artist'] }}</h2>
+        <div class="title">{{ songInfo()['Track Name'] }}</div>
+        <div class="artist">{{ songInfo()['Artist'] }}</div>
         <ul>
           <li><strong>Danceability:</strong> {{ songInfo()['danceability'] }}</li>
           <li><strong>Energy:</strong> {{ songInfo()['energy'] }}</li>
@@ -22,6 +24,7 @@
           <li><strong>Duration:</strong> {{ formatDuration(songInfo()['duration_ms']) }}</li>
           <li><strong>Time Signature:</strong> {{ songInfo()['time_signature'] }}</li>
         </ul>
+
         <a :href="'https://open.spotify.com/track/'+songInfo()['id']" target="_blank" class="btn-spotify">Go to Spotify Page</a>
       </div>
     </div>
@@ -50,19 +53,15 @@
   .song-info {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
-    /* margin: 50px auto;
-    max-width: 1000px;
-    background-color: #f2f2f2;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    border-radius: 5px; */
   }
 
   .song-image {
     width: 50%;
     height: 100%;
     overflow: hidden;
+    text-align: center;
+    margin: 25px;
   }
 
   .song-image img {
@@ -70,23 +69,29 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+
+  }
+  .song-image iframe {
+    width: 100%;
+    margin-top: 32px;
   }
 
   .song-details {
     width: 50%;
-    padding: 20px;
+    height: 100%;
+    margin: 25px;
     font-family: 'Helvetica Neue', sans-serif;
     color: #333;
   }
 
-  h1 {
+  .title {
     font-size: 40px;
     font-weight: bold;
-    margin-top: 0;
+    margin-top: 20px;
     margin-bottom: 10px;
   }
 
-  h2 {
+  .artist {
     font-size: 24px;
     font-weight: bold;
     margin-top: 0;
@@ -127,7 +132,7 @@
   }
 
   .question{
-    padding:20px;
+    padding:0px;
     text-align: center;
     font-family: 'Helvetica Neue', sans-serif;
     font-size: 24px;
