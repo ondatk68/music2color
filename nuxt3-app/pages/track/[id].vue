@@ -172,10 +172,7 @@
 
     }),
     mounted: function() {
-      //console.log(data);
-      data.forEach((value,index) => {
-        this.csvData = data;
-      });
+      this.csvData = data;
     },
     methods: {
       songInfo() {

@@ -75,7 +75,10 @@ export default{
 
   mounted: function() {
     data.forEach((value) => {
-      this.tracks.push({ name: value["Track Name"] + " - " + value["Artist"], lower: value["Track Name"] + " - " + value["Artist"].toLowerCase(), id: value["id"] });
+      let color = this.calcColor(value);
+      if(color == this.$route.params.color){
+        this.tracks.push({ name: value["Track Name"] + " - " + value["Artist"], lower: value["Track Name"] + " - " + value["Artist"].toLowerCase(), id: value["id"]});
+      }
     });
   },
   computed: {
@@ -93,6 +96,13 @@ export default{
   methods: {
     backButton(){
       this.$router.go(-1);
+    },
+    calcColor(row){
+        if(row["Artist"].indexOf("OFFICIAL") !== -1){
+            return "red";
+        }else{
+            return "blue"
+        }
     }
   },
 }
