@@ -1,30 +1,73 @@
 <template>
-  <div>
+  <div class="home-background">
     <!-- <NuxtLayout name="default">
       <template #header>ヘッダー</template>
     </NuxtLayout> -->
     <div class="wrapper">
       <div class="centered">
         <h1 class="shadow">Music to Color</h1>
-        <div class="gotosearch">
-          <NuxtLink to="/usingcolor">色で検索する</NuxtLink>
-        </div>
-        <div class="gotosearch">
-          <NuxtLink to="/usingtitle">曲名で検索する</NuxtLink>
-        </div>
-        <div class="box">
+        <div class="go-to-search">
+          <div class="go-to-color">
+            <NuxtLink to="/usingcolor">色から検索</NuxtLink>
+          </div>
+          <div class="go-to-title">
+            <NuxtLink to="/usingtitle">曲名から検索</NuxtLink>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<style  type="text/css">
+<style scoped>
 .shadow {
-  font-size: 3.5em;
-  /*color: #000000*/
+  font-size: 4.5em;
   text-shadow: 1px 1px 2px #000000;
   font-weight: bold;
+
+}
+
+.go-to-search {
+  position: relative;
+  top: 70%;
+
+
+}
+
+.go-to-color {
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  border-radius: 50%;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #000;
+  text-align: center;
+  line-height: 300px;
+  margin-right: 50px;  
+  color: blue;
+}
+
+.go-to-title {
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  border-radius: 50%;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #000;
+  text-align: center;
+  line-height: 300px;
+  margin-left: 50px;
+  color: blue;
+}
+
+.go-to-color:hover,
+.go-to-title:hover {
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .wrapper {
@@ -45,6 +88,7 @@
   animation: rainbow 18s ease infinite;
 }
 
+
 @-webkit-keyframes rainbow {
   0% {
     background-position: 0% 82%
@@ -58,6 +102,7 @@
     background-position: 0% 82%
   }
 }
+
 
 @-moz-keyframes rainbow {
   0% {
@@ -100,37 +145,6 @@
     background-position: 0% 82%
   }
 }
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
-.gotosearch {
-  font-family: 'Noto Sans JP', sans-serif;
-  border-radius: 30px;
-  background-color: rgba(248, 247, 247, 0.2);
-  padding: 10px;
-  margin: 30px auto;
-  margin-top: 100px;
-  width:120px;
-  /*width: 100px;*/
-  /*text-align: 50%;*/
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-}
-
-/*
-.box {
-  max-width  : 250px;
-  height     : 150px;
-  margin     : auto;
-
-  background : linear-gradient(to right,
-                               rgb(255, 128, 128),
-                               rgb(255, 210, 125),
-                               rgb(255, 255, 125),
-                               rgb(0, 192, 0),
-                               rgb(0, 128, 128),
-                               rgb(0,0,128),
-                               rgb(192, 0, 192));
-}
-*/
 </style>
 
 <script setup>
