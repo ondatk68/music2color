@@ -4,7 +4,7 @@
       <div class="search">
         <input type="text" v-model="keyword" placeholder="searching track..." />
       </div>
-      <tr v-for="tracks in  paginatedTracks/*filteredTracks*/" :key="tracks.id">
+      <tr v-for="tracks in  paginatedTracks" :key="tracks.id">
         <nuxt-link :to="`/track/${tracks.id}`" class="songlist">
           <div class="track-img">
             <img :src="tracks.art" alt="Album Art">
@@ -13,7 +13,6 @@
             {{ tracks.name }}
           </div>
         </nuxt-link>
-
       </tr>
       <paginate
         v-model="currentPage"
@@ -80,7 +79,7 @@ export default{
 }
 </script>
 
-<style >
+<style>
 
 .search {
   display: flex;
@@ -108,6 +107,9 @@ export default{
   align-items: center;
 }
 
+/* .container tr:hover{
+	background-color: #9eff0c;
+} */
 .songlist {
   display: flex; /* フレックスボックスとして表示するための設定 */
   /* justify-content: space-between; アイテムを左右に均等に配置する */
@@ -119,7 +121,6 @@ export default{
   color: black; /*テキストの色変化と下線を消したい */
   text-decoration: none;
 }
-
 
 .songlist
 .track-img img{
