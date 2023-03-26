@@ -5,7 +5,15 @@
         <input type="text" v-model="keyword" placeholder="searching track..." />
       </div>
       <tr v-for="tracks in filteredTracks" :key="tracks.id">
-        <nuxt-link :to="`/track/${tracks.id}`" class="songlist">{{ tracks.name }}</nuxt-link>
+        <nuxt-link :to="`/track/${tracks.id}`" class="songlist">
+          <div class="track-img">
+            <img :src="tracks.art" alt="Album Art">
+          </div>
+          <div class="track-name">
+            {{ tracks.name }}
+          </div>
+        </nuxt-link>
+
       </tr>
     </div>
   </div>
@@ -22,7 +30,7 @@ export default{
 
   mounted: function() {
     data.forEach((value) => {
-      this.tracks.push({ name: value["Track Name"] + " - " + value["Artist"], lower: value["Track Name"] + " - " + value["Artist"].toLowerCase(), id: value["id"]});
+      this.tracks.push({ name: value["Track Name"] + " - " + value["Artist"], lower: value["Track Name"] + " - " + value["Artist"].toLowerCase(), id: value["id"], art:value["Album Art"]});
     });
   },
   computed: {
@@ -70,7 +78,7 @@ export default{
 
 .songlist {
   display: flex; /* フレックスボックスとして表示するための設定 */
-  justify-content: space-between; /* アイテムを左右に均等に配置する */
+  /* justify-content: space-between; アイテムを左右に均等に配置する */
   align-items: center; /* アイテムを垂直方向中央に配置する */
   background-color: #f7f7f7;
   margin: 10px;
@@ -80,4 +88,11 @@ export default{
   text-decoration: none;
 }
 
+
+.songlist
+.track-img img{
+  height:100px;
+  width:100px;
+  margin-right: 50px;
+}
 </style>

@@ -164,8 +164,8 @@ strong {
   box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.2);
 
 
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   position:absolute;
   top:40%;
   left:40%;
