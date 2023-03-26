@@ -28,6 +28,7 @@
     "pickle": "^0.2.0",
     "sweetalert2": "^11.7.3",
     "tensorflow-models": "^0.0.1",
+    "vercel-builder": "^0.0.2",
     "vue-color": "^2.8.1",
     "vuejs-paginate": "^2.1.0"
   }
