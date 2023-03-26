@@ -168,7 +168,6 @@ export default defineEventHandler(async (event) => {
           });
         })
         .then((data) => {
-          console.log(data);
           fs.writeFileSync(
             "result/res.json",
             JSON.stringify(data, null, "    ")

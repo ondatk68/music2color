@@ -27,10 +27,13 @@
           <li><strong>Time Signature:</strong> {{ songInfo()['time_signature'] }}</li>
         </ul>
 -->
-        <div class="question">
+        <!-- <div class="question">
           What is the color of this song?
-        </div>
+        </div> -->
         <div class="color-buttons">
+          <div class="question">
+            What is the color of this song?
+          </div>
           <button v-for="color in colors" :key="color" :style="{ 'background-color': color }" @click="voteColor(color)">
             {{ color }}
           </button>
@@ -129,6 +132,11 @@ strong {
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 24px;
   font-weight: bold;
+
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
 }
 
 .color-buttons {
@@ -155,13 +163,14 @@ strong {
   cursor: pointer;
   box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.2);
 
-  position: absolute;
+
   width: 50px;
   height: 50px;
-  margin: 100px;
+  position:absolute;
+  top:40%;
+  left:40%;
+
   transform: translate(-50%, -50%);
-  width: 50px;
-  height: 50px;
   border-radius: 50%;
 }
 
@@ -237,19 +246,21 @@ export default {
         confirmButtonText: 'OK',
         background: color,
       })
-      console.log(this.songInfo()['id'], color);
+      // console.log(this.songInfo()['id'], color);
+
+      return false;
     },
 
     positionButtons() {
       const buttons = document.querySelectorAll('.color-buttons button');
       const buttonCount = buttons.length;
-      const radius = 120;
+      const radius = 150;
       const angleIncrement = 360 / buttonCount;
 
       buttons.forEach((button, index) => {
         const angle = index * angleIncrement + this.angle;
-        const x = radius * Math.cos(angle * Math.PI / 180);
-        const y = radius * Math.sin(angle * Math.PI / 180);
+        const x = radius * Math.cos((angle-90) * Math.PI / 180);
+        const y = radius * Math.sin((angle-90) * Math.PI / 180);
         button.style.transform = `translate(${x}px, ${y}px)`;
       });
     }
