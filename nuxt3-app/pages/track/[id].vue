@@ -62,6 +62,7 @@
     overflow: hidden;
     text-align: center;
     margin: 25px;
+    margin-bottom: 0px
   }
 
   .song-image img {
@@ -73,7 +74,7 @@
   }
   .song-image iframe {
     width: 100%;
-    margin-top: 32px;
+    margin-top: 25px;
   }
 
   .song-details {
@@ -165,10 +166,6 @@
 
   import data from '@/assets/top_chart_50.csv';
   import Swal from 'sweetalert2';
-  // import axios from 'axios';
-  // import fs from 'fs';
-  // import path from 'path';
-  // import csv from 'csv-parser'
 
   export default{
     data: ()=>({
@@ -214,12 +211,7 @@
           background: color,
         });
         console.log(this.songInfo()['id'], color);
-        // const id = this.songInfo()['id'];
-        // const data = `${id},${color}\n`;
-        // fs.appendFile('vote_res.csv', data, (err) => {
-        //   if (err) throw err;
-        //   console.log(`${data} was appended to file!`);
-        // });
+
       }
     },
   }

@@ -66,6 +66,7 @@
 
 <script>
 import data from '@/assets/top_chart_50.csv';
+import id2color from '@/result/res.json';
 
 export default{
   data: ()=>({
@@ -98,11 +99,7 @@ export default{
       this.$router.go(-1);
     },
     calcColor(row){
-        if(row["Artist"].indexOf("OFFICIAL") !== -1){
-            return "red";
-        }else{
-            return "blue"
-        }
+      return id2color[row["id"]].toLowerCase();
     }
   },
 }
