@@ -165,6 +165,10 @@ strong {
   border-radius: 50%;
 }
 
+.color-buttons button:hover {
+    opacity: 0.6;
+}
+
 .btn-spotify {
   display: block;
   margin-top: 20px;
@@ -188,7 +192,7 @@ strong {
 
 <script>
 
-  import data from '@/assets/top_chart_50.csv';
+import data from '@/assets/top_chart_50.csv';
 import Swal from 'sweetalert2';
 
 
@@ -218,7 +222,6 @@ export default {
     async voteColor(color) {
       // csv書き込み
       // 後でかく
-
       const { data } = await useFetch('/api/color', {
         method: 'POST',
         body: JSON.stringify({
@@ -233,14 +236,8 @@ export default {
         icon: 'success',
         confirmButtonText: 'OK',
         background: color,
-      });
+      })
       console.log(this.songInfo()['id'], color);
-      // const id = this.songInfo()['id'];
-      // const data = `${id},${color}\n`;
-      // fs.appendFile('vote_res.csv', data, (err) => {
-      //   if (err) throw err;
-      //   console.log(`${data} was appended to file!`);
-      // });
     },
 
     positionButtons() {

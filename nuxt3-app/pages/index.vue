@@ -7,11 +7,11 @@
       <div class="centered">
         <h1 class="shadow">Music to Color</h1>
         <div class="go-to-search">
-          <div class="go-to-color">
-            <NuxtLink to="/usingcolor">色から検索</NuxtLink>
+          <div class="go-to-color" @click="$nuxt.$router.push('/usingcolor')">
+            色から検索
           </div>
-          <div class="go-to-title">
-            <NuxtLink to="/usingtitle">曲名から検索</NuxtLink>
+          <div class="go-to-title" @click="$nuxt.$router.push('/usingtitle')">
+            曲名から検索
           </div>
 
         </div>
@@ -31,8 +31,6 @@
 .go-to-search {
   position: relative;
   top: 70%;
-
-
 }
 
 .go-to-color {
@@ -46,7 +44,7 @@
   border: 2px solid #000;
   text-align: center;
   line-height: 300px;
-  margin-right: 50px;  
+  margin-right: 50px;
   color: blue;
 }
 
