@@ -39,7 +39,11 @@ export default {
   border-radius: 50%;
   font-size: 1.2rem;
   color: #fff;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  text-shadow:
+    1px 0 0 black,
+    0 1px 0 black,
+    -1px 0 0 black,
+    0 -1px 0 black;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
   position: relative;
@@ -54,6 +58,7 @@ export default {
 
 .color-button:hover {
   transform: translateY(-10px);
+
 }
 
 .color-button:active {
