@@ -176,7 +176,9 @@ export default defineEventHandler(async (event) => {
           console.log("vote reflected!");
         })
         .then(() => {
-          const data = JSON.parse(fs.readFileSync("../result/resjson", "utf8"));
+          const data = JSON.parse(
+            fs.readFileSync("../result/res.json", "utf8")
+          );
 
           for (const key in data) {
             console.log(key, data[key]);
