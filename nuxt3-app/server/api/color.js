@@ -43,8 +43,9 @@ export default defineEventHandler(async (event) => {
       return [id, color];
     })
     .then((data) => {
+      console.log(process.cwd());
       let csvWriter = createObjectCsvWriter({
-        path: "./data/vote_res.csv",
+        path: "../data/vote_res.csv",
         header: ["id", "color"],
         encoding: "utf8",
         append: true,
@@ -76,8 +77,8 @@ export default defineEventHandler(async (event) => {
       };
 
       Promise.all([
-        readFile("./data/vote_res.csv"),
-        readFile("./assets/top_chart_50.csv"),
+        readFile("../data/vote_res.csv"),
+        readFile("../assets/top_chart_50.csv"),
       ])
         .then(([voteRes, join]) => {
           // IDをキーに結合する
