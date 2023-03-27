@@ -88,7 +88,7 @@ export default defineEventHandler(async (event) => {
           return joinedData;
         })
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           const xs = [];
           const ys = [];
           data.forEach((row) => {
@@ -168,12 +168,19 @@ export default defineEventHandler(async (event) => {
           });
         })
         .then((data) => {
-          console.log(data);
+          //console.log(data);
           fs.writeFileSync(
             "../result/res.json",
             JSON.stringify(data, null, "    ")
           );
           console.log("vote reflected!");
+        })
+        .then(() => {
+          const data = JSON.parse(fs.readFileSync("../result/resjson", "utf8"));
+
+          for (const key in data) {
+            console.log(key, data[key]);
+          }
         })
         .catch((error) => console.error(error));
     });
