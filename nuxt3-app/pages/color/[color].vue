@@ -67,6 +67,7 @@ export default{
     ///////////////
     axios.get("../result/res.json")
     .then(response=>{
+      console.log("json",response.data);
       this.id2color = response.data;
     });
     //////////////
@@ -100,6 +101,7 @@ export default{
   },
   methods: {
     backButton(){
+      console.log(process.cwd());
       this.$router.go(-1);
     },
     calcColor(row){

@@ -175,6 +175,19 @@ export default defineEventHandler(async (event) => {
           );
           console.log("vote reflected!");
         })
+        .then(() => {
+          const data = JSON.parse(
+            fs.readFileSync("../result/res.json", "utf8")
+          );
+          let i = 0;
+          for (const key in data) {
+            console.log(key, data[key]);
+            i++;
+            if (i == 10) {
+              break;
+            }
+          }
+        })
         .catch((error) => console.error(error));
     });
 });
