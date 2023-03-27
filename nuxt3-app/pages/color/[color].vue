@@ -46,8 +46,8 @@
 
 <script>
 import data from '@/assets/top_chart_50.csv';
-// import id2color from '@/result/res.json';
-import axios from 'axios';
+import id2color from '@/result/res.json';
+// import axios from 'axios';
 import Paginate from 'vuejs-paginate/src/components/Paginate';
 
 export default{
@@ -57,19 +57,19 @@ export default{
   data: ()=>({
       keyword: "",
       tracks: [],
-      id2color:[],   //
+      // id2color:[],   //
       currentPage: 1,
       pageSize: 30
   }),
 
   mounted: function() {
-    console.log(process.cwd());
+    // console.log(process.cwd());
     ///////////////
-    axios.get("../result/res.json")
-    .then(response=>{
-      console.log("json",response.data);
-      this.id2color = response.data;
-    });
+    // axios.get("../result/res.json")
+    // .then(response=>{
+    //   console.log("json",response.data);
+    //   this.id2color = response.data;
+    // });
     //////////////
     data.forEach((value) => {
       let color = this.calcColor(value);
@@ -101,11 +101,11 @@ export default{
   },
   methods: {
     backButton(){
-      console.log(process.cwd());
+      // console.log(process.cwd());
       this.$router.go(-1);
     },
     calcColor(row){
-      return this.id2color[row["id"]].toLowerCase();  //////
+      return id2color[row["id"]].toLowerCase();  //////
     },
     onPageChanged: function(page) {
       this.currentPage = page;
