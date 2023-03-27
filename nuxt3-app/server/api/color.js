@@ -43,7 +43,6 @@ export default defineEventHandler(async (event) => {
       return [id, color];
     })
     .then((data) => {
-      console.log(process.cwd());
       let csvWriter = createObjectCsvWriter({
         path: "../data/vote_res.csv",
         header: ["id", "color"],
@@ -127,7 +126,7 @@ export default defineEventHandler(async (event) => {
         })
         .then((classifier) => {
           fs.writeFile(
-            "model/model.txt",
+            "../model/model.txt",
             JSON.stringify(classifier),
             (err, data) => {
               if (err) console.log(err);
@@ -137,7 +136,7 @@ export default defineEventHandler(async (event) => {
 
           return new Promise((resolve, reject) => {
             const data = {};
-            fs.createReadStream("assets/top_chart_50.csv")
+            fs.createReadStream("../assets/top_chart_50.csv")
               .pipe(csv.parse({ columns: true }))
               .on("data", (row) => {
                 data[row["id"]] =
@@ -170,9 +169,10 @@ export default defineEventHandler(async (event) => {
         })
         .then((data) => {
           fs.writeFileSync(
-            "result/res.json",
+            "../result/res.json",
             JSON.stringify(data, null, "    ")
           );
+          console.log("vote reflected!");
         })
         .catch((error) => console.error(error));
     });
