@@ -46,7 +46,6 @@
 
 <script>
 import data from '@/assets/top_chart_50.csv';
-// import id2color from '@/result/res.json';
 import Paginate from 'vuejs-paginate/src/components/Paginate';
 
 
@@ -107,9 +106,6 @@ export default{
     backButton(){
       this.$router.go(-1);
     },
-    // calcColor(row){
-    //   return id2color[row["id"]].toLowerCase();  //////
-    // },
     onPageChanged: function(page) {
       this.currentPage = page;
     }

@@ -13,7 +13,6 @@ export default defineEventHandler(async (event) => {
       return data[color];
     })
     .then((data) => {
-      //   console.log(data);
       data.forEach((element) => {
         res.push(element);
       });

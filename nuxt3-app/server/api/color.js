@@ -1,5 +1,3 @@
-// const fs = require("fs");
-// const createCsvWriter = require("csv-writer").createObjectCsvWriter;
 import { createObjectCsvWriter } from "csv-writer";
 
 import * as csv from "csv";
@@ -88,7 +86,6 @@ export default defineEventHandler(async (event) => {
           return joinedData;
         })
         .then((data) => {
-          // console.log(data);
           const xs = [];
           const ys = [];
           data.forEach((row) => {
@@ -118,9 +115,8 @@ export default defineEventHandler(async (event) => {
             minNumSamples: 3,
           };
 
-          const classifier = new DTClassifier();
+          const classifier = new DTClassifier(options);
           classifier.train(data[0], data[1]);
-          const result = classifier.predict(data[0]);
 
           return classifier;
         })
@@ -168,7 +164,6 @@ export default defineEventHandler(async (event) => {
           });
         })
         .then((data) => {
-          // console.log(data);
           const newData = {
             red: [],
             orange: [],
@@ -191,22 +186,8 @@ export default defineEventHandler(async (event) => {
             "../result/res.json",
             JSON.stringify(newData, null, "    ")
           );
-          // fs.writeFileSync(
-          //   "./result/res.json",
-          //   JSON.stringify(data, null, "    ")
-          // );
+
           console.log("vote reflected!");
-        })
-        .then(() => {
-          // const data = JSON.parse(fs.readFileSync("./result/res.json", "utf8"));
-          // let i = 0;
-          // for (const key in data) {
-          //   console.log(key, data[key]);
-          //   i++;
-          //   if (i == 10) {
-          //     break;
-          //   }
-          // }
         })
         .catch((error) => console.error(error));
     });

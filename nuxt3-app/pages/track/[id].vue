@@ -10,26 +10,6 @@
       <div class="song-details">
         <div class="title">{{ songInfo()['Track Name'] }}</div>
         <div class="artist">{{ songInfo()['Artist'] }}</div>
-        <!--
-        <ul>
-          <li><strong>Danceability:</strong> {{ songInfo()['danceability'] }}</li>
-          <li><strong>Energy:</strong> {{ songInfo()['energy'] }}</li>
-          <li><strong>Key:</strong> {{ songInfo()['key'] }}</li>
-          <li><strong>Loudness:</strong> {{ songInfo()['loudness'] }}</li>
-          <li><strong>Mode:</strong> {{ songInfo()['mode'] }}</li>
-          <li><strong>Speechiness:</strong> {{ songInfo()['speechiness'] }}</li>
-          <li><strong>Acousticness:</strong> {{ songInfo()['acousticness'] }}</li>
-          <li><strong>Instrumentalness:</strong> {{ songInfo()['instrumentalness'] }}</li>
-          <li><strong>Liveness:</strong> {{ songInfo()['liveness'] }}</li>
-          <li><strong>Valence:</strong> {{ songInfo()['valence'] }}</li>
-          <li><strong>Tempo:</strong> {{ songInfo()['tempo'] }}</li>
-          <li><strong>Duration:</strong> {{ formatDuration(songInfo()['duration_ms']) }}</li>
-          <li><strong>Time Signature:</strong> {{ songInfo()['time_signature'] }}</li>
-        </ul>
--->
-        <!-- <div class="question">
-          What is the color of this song?
-        </div> -->
         <div class="color-buttons">
           <div class="question">
             What is the color of this song?
@@ -109,23 +89,6 @@
   margin-bottom: 20px;
 }
 
-/*
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 10px;
-  font-size: 16px;
-}
-
-strong {
-  font-weight: bold;
-}
-*/
-
 .question {
   padding: 0px;
   text-align: center;
@@ -140,11 +103,6 @@ strong {
 }
 
 .color-buttons {
-  /*
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-  */
   position: relative;
   width: 300px;
   height: 300px;
@@ -153,16 +111,8 @@ strong {
 }
 
 .color-buttons button {
-  /*
-  width: 50px;
-  height: 50px;
-  margin: 5px;
-  border: none;
-  border-radius: 50%;
-    */
   cursor: pointer;
   box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.2);
-
 
   width: 60px;
   height: 60px;
@@ -230,7 +180,6 @@ export default {
     },
     async voteColor(color) {
       // csv書き込み
-      // 後でかく
       const { data } = await useFetch('/api/color', {
         method: 'POST',
         body: JSON.stringify({
@@ -246,7 +195,6 @@ export default {
         confirmButtonText: 'OK',
         background: color,
       })
-      // console.log(this.songInfo()['id'], color);
 
       return false;
     },

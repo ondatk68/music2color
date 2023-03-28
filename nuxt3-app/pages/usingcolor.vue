@@ -18,7 +18,6 @@ export default {
   },
   methods: {
     goToColorPage(color) {
-      // this.$forceUpdate();
       this.$router.push(`/color/${color.toLowerCase()}`)
     }
   }
