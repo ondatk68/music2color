@@ -20,6 +20,7 @@ music2color.onrender.com/
 
 - 投票
   ![subtitile](img/subtitle.png)
-  それぞれのページから遷移できる曲のページで、その色が喚起する色のイメージを投票できます。投票するたびに ai が再学習して色の分類が変わります。例えば、[これ](https://music2color.onrender.com/track/49F3htNmwzPKFycPdOrDvf)は Offical 髭男 dism のページです。曲を再生したり、その曲の spotify のページに飛んだりすることもできます。
+  それぞれのページから遷移できる曲のページで、その曲が喚起する色のイメージを投票できます。投票するたびに ai が再学習して色の分類が変わります。例えば、[これ](https://music2color.onrender.com/track/49F3htNmwzPKFycPdOrDvf)は Offical 髭男 dism のページです。曲を再生したり、その曲の spotify のページに飛んだりすることもできます。
 - AI
+
   spotifyAPI から取得できるパラメータを特徴量として分類モデルを作成しています。主なパラメータには tempo,key,danceability,loudness などがあります。説明可能性を重視するため、決定木の分類モデルを使っています。
