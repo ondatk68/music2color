@@ -47,8 +47,8 @@
 <script>
 import data from '@/assets/top_chart_50.csv';
 import id2color from '@/result/res.json';
-// import axios from 'axios';
 import Paginate from 'vuejs-paginate/src/components/Paginate';
+
 
 export default{
   components: {
@@ -57,23 +57,37 @@ export default{
   data: ()=>({
       keyword: "",
       tracks: [],
-      // id2color:[],   //
+      id2color:[],   //
       currentPage: 1,
       pageSize: 30
   }),
 
-  mounted: function() {
+  mounted: async function() {
     // console.log(process.cwd());
     ///////////////
-    // axios.get("../result/res.json")
+    // axios.get("../result/res")
     // .then(response=>{
-    //   console.log("json",response.data);
+    //   console.log("json",response);
     //   this.id2color = response.data;
     // });
     //////////////
+
+     const tmp = await useFetch('/api/id2color', {
+        method: 'POST',
+        body: JSON.stringify({
+          color: this.$route.params.color
+        }),
+      });
+
+     tmp.data._rawValue.forEach(el =>{
+      this.id2color.push(el);
+     })
+
+
+
     data.forEach((value) => {
-      let color = this.calcColor(value);
-      if(color == this.$route.params.color){
+      // let color = this.calcColor(value);
+      if(this.id2color.includes(value["id"])){
         this.tracks.push({ name: value["Track Name"] + " - " + value["Artist"], lower: value["Track Name"] + " - " + value["Artist"].toLowerCase(), id: value["id"], art:value["Album Art"]});
       }
     });
@@ -104,9 +118,9 @@ export default{
       // console.log(process.cwd());
       this.$router.go(-1);
     },
-    calcColor(row){
-      return id2color[row["id"]].toLowerCase();  //////
-    },
+    // calcColor(row){
+    //   return id2color[row["id"]].toLowerCase();  //////
+    // },
     onPageChanged: function(page) {
       this.currentPage = page;
     }

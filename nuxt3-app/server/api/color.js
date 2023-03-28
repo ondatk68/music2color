@@ -168,25 +168,45 @@ export default defineEventHandler(async (event) => {
           });
         })
         .then((data) => {
-          //console.log(data);
+          // console.log(data);
+          const newData = {
+            red: [],
+            orange: [],
+            yellow: [],
+            green: [],
+            lime: [],
+            blue: [],
+            aqua: [],
+            purple: [],
+            pink: [],
+            brown: [],
+            black: [],
+            white: [],
+          };
+          Object.keys(data).forEach((key) => {
+            newData[data[key].toLowerCase()].push(key);
+          });
+          console.log(newData);
           fs.writeFileSync(
             "../result/res.json",
-            JSON.stringify(data, null, "    ")
+            JSON.stringify(newData, null, "    ")
           );
+          // fs.writeFileSync(
+          //   "./result/res.json",
+          //   JSON.stringify(data, null, "    ")
+          // );
           console.log("vote reflected!");
         })
         .then(() => {
-          const data = JSON.parse(
-            fs.readFileSync("../result/res.json", "utf8")
-          );
-          let i = 0;
-          for (const key in data) {
-            console.log(key, data[key]);
-            i++;
-            if (i == 10) {
-              break;
-            }
-          }
+          // const data = JSON.parse(fs.readFileSync("./result/res.json", "utf8"));
+          // let i = 0;
+          // for (const key in data) {
+          //   console.log(key, data[key]);
+          //   i++;
+          //   if (i == 10) {
+          //     break;
+          //   }
+          // }
         })
         .catch((error) => console.error(error));
     });
