@@ -5,12 +5,11 @@ export default defineEventHandler(async (event) => {
   await readBody(event)
     .then((data) => {
       let color = data.color;
-      //   console.log(color);
       return color;
     })
     .then((color) => {
       const data = JSON.parse(fs.readFileSync("../result/res.json", "utf8"));
-      //   console.log(data);
+      console.log(data);
       return data[color];
     })
     .then((data) => {

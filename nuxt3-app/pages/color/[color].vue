@@ -46,7 +46,7 @@
 
 <script>
 import data from '@/assets/top_chart_50.csv';
-import id2color from '@/result/res.json';
+// import id2color from '@/result/res.json';
 import Paginate from 'vuejs-paginate/src/components/Paginate';
 
 
@@ -63,15 +63,6 @@ export default{
   }),
 
   mounted: async function() {
-    // console.log(process.cwd());
-    ///////////////
-    // axios.get("../result/res")
-    // .then(response=>{
-    //   console.log("json",response);
-    //   this.id2color = response.data;
-    // });
-    //////////////
-
      const tmp = await useFetch('/api/id2color', {
         method: 'POST',
         body: JSON.stringify({
@@ -86,7 +77,6 @@ export default{
 
 
     data.forEach((value) => {
-      // let color = this.calcColor(value);
       if(this.id2color.includes(value["id"])){
         this.tracks.push({ name: value["Track Name"] + " - " + value["Artist"], lower: value["Track Name"] + " - " + value["Artist"].toLowerCase(), id: value["id"], art:value["Album Art"]});
       }
@@ -115,7 +105,6 @@ export default{
   },
   methods: {
     backButton(){
-      // console.log(process.cwd());
       this.$router.go(-1);
     },
     // calcColor(row){
