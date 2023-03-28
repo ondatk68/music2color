@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
     })
     .then((color) => {
       const data = JSON.parse(fs.readFileSync("../result/res.json", "utf8"));
-      console.log(data);
+      //   console.log(data);
       return data[color];
     })
     .then((data) => {
